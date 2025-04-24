@@ -23,8 +23,9 @@ async def get_todo(todo_id: int):
     return {"message": "no todos found"}
 # Create a todo
 @app.post("/todos")
-async def create_todos(todo: Todo):
-    todos.append(todo)
+async def create_todos(todo_list: list[Todo]):
+    for todo in todo_list:
+        todos.append(todo)
     return {"message": "Todos has been ADDED"}
 
 # Update a todo
